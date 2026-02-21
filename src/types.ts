@@ -16,8 +16,12 @@ export interface Subject {
 
 export interface StudySession {
   id: number;
-  subject: Subject;
-  date: string; // YYYY-MM-DD
+  date: string;           // "YYYY-MM-DD"
+  startTime?: string;     // "18:00:00"
   minutes: number;
-  status: SessionStatus;
+  status: "PLANNED" | "DONE" | "MISSED";
+  subject?: {
+    id: number;
+    name: string;
+  };
 }
