@@ -12,7 +12,7 @@ public class PlanningEngine {
     public static class PlannedItem {
         public final Long subjectId;
         public final LocalDate date;
-        public final LocalTime startTime; // ✅ NEW
+        public final LocalTime startTime; 
         public final int minutes;
 
         public PlannedItem(Long subjectId, LocalDate date, LocalTime startTime, int minutes) {
@@ -61,8 +61,8 @@ public class PlanningEngine {
 
         List<PlannedItem> plan = new ArrayList<>();
 
-        // ✅ Choose a realistic daily start time (evening study)
-        final LocalTime dayStartTime = LocalTime.of(18, 0); // 6:00 PM
+        //  Choose a realistic daily start time (evening study)
+        final LocalTime dayStartTime = LocalTime.of(18, 0); 
 
         for (LocalDate day = startDate; !day.isAfter(lastExam); day = day.plusDays(1)) {
             int free = minutesPerDay;
@@ -86,14 +86,14 @@ public class PlanningEngine {
                 allocate = Math.min(allocate, top.remainingMinutes);
                 if (allocate <= 0) continue;
 
-                // ✅ Use cursor as session start time
+                // Use cursor as session start time
                 plan.add(new PlannedItem(top.subject.getId(), day, cursor, allocate));
 
                 free -= allocate;
                 int newRem = top.remainingMinutes - allocate;
                 remaining.put(top.subject.getId(), newRem);
 
-                // ✅ advance time cursor by allocated minutes (+ optional break)
+                // advance time cursor by allocated minutes (+ optional break)
                 cursor = cursor.plusMinutes(allocate);
 
                 // Optional: add 10-minute break after each session
