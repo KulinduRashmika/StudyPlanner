@@ -65,7 +65,7 @@ public class PlanningService {
             Subject subj = subjectMap.get(it.subjectId);
             if (subj == null) continue;
 
-            // ✅ FIX: save startTime from PlanningEngine
+           
             StudySession sess = new StudySession(subj, it.date, it.startTime, it.minutes);
             sess.setStatus(SessionStatus.PLANNED);
 
