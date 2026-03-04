@@ -20,7 +20,7 @@ public class StudySession {
 
     private LocalDate date;
 
-    // ✅ ensures JSON gives "18:00:00"
+    
     @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime startTime;
 
@@ -30,15 +30,15 @@ public class StudySession {
     @Enumerated(EnumType.STRING)
     private SessionStatus status = SessionStatus.PLANNED;
 
-    // ✅ REQUIRED by JPA
+    
     public StudySession() {}
 
-    // ✅ Optional: keep 3-arg constructor (sets time default)
+    
     public StudySession(Subject subject, LocalDate date, int minutes) {
-        this(subject, date, LocalTime.of(18, 0), minutes); // default 6:00 PM
+        this(subject, date, LocalTime.of(18, 0), minutes); 
     }
 
-    // ✅ Main constructor used by the planner (REAL one)
+   
     public StudySession(Subject subject, LocalDate date, LocalTime startTime, int minutes) {
         this.subject = subject;
         this.date = date;
