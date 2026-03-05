@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface StudySessionRepository extends JpaRepository<StudySession, Long> {
 
-    // ✅ Order by date THEN startTime (important)
+    
     List<StudySession> findByDateBetweenOrderByDateAscStartTimeAsc(LocalDate from, LocalDate to);
 
     List<StudySession> findByDate(LocalDate date);
